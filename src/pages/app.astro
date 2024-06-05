@@ -1,0 +1,481 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Tic-Tac-Toe - PRTS System running">
+	<main>
+        <div class="menu">
+            <div class="game-menu">
+                <header>
+                    <div class="header-box">
+                        <div class="user-box" id="menu-player1">
+                            <img src="/imgs/user-icon.png" />
+                            <div class="user-name">
+                                <div class="number">Player 1</div>
+                                <div class="name" id="username1">Dr. Player 1</div>
+                            </div>
+                            <div class="number-icon">
+                                <img src="/imgs/Player1Icon.png">
+                            </div>
+                        </div>
+                        <div class="user-box" id="menu-player2" style="display: none">
+                            <img src="/imgs/user-icon.png" />
+                            <div class="user-name">
+                                <div class="number">Player 2</div>
+                                <div class="name" id="username2">Dr. Player 2</div>
+                            </div>
+                            <div class="number-icon">
+                                <img src="/imgs/Player2Icon.png">
+                            </div>
+                        </div>
+                        <div></div>
+                        <div class="title-box">
+                            <img src="/imgs/startLOGO.png">
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+
+        <div class="account-setting" id="accountWindows">
+            <div class="account-background" id="accountBackground"></div>
+            <div class="windows">
+                <header>
+                    <div class="player-list">
+                        <div class="player player-1" id="ply1detail">Player 1</div>
+                        <div class="player" id="ply2detail">Player 2</div>
+                    </div>
+                </header>
+                <div class="detail">
+                    <div class="player1-detail" id="player1-detail">
+                        <h1 id="accountUsername1">Dr. Player 1</h1>
+                        <input type="text" id="typename1" name="" required minlength="1" maxlength="9" size="12" />
+                        <button type="button" id="changename1">Change</button>
+                    </div>
+                    <div class="player2-detail" id="player2-detail" style="display: none;">
+                        <h1 id="accountUsername2">Dr. Player 2</h1>
+                        <input type="text" id="typename2" name="" required minlength="1" maxlength="9" size="12" />
+                        <button type="button" id="changename2">Change</button>
+                    </div>
+                </div>
+                <img class="close" id="closeAccountWindows" src="/imgs/close-000.png" />
+            </div>
+        </div>
+        <div class="battlezone">
+            <div class="borad">
+                <div class="cell" id="box-1"></div>
+                <div class="cell" id="box-2"></div>
+                <div class="cell" id="box-3"></div>
+                <div class="cell" id="box-4"></div>
+                <div class="cell" id="box-5"></div>
+                <div class="cell" id="box-6"></div>
+                <div class="cell" id="box-7"></div>
+                <div class="cell" id="box-8"></div>
+                <div class="cell" id="box-9"></div>
+            </div>
+            <div class="player1">
+                <div id="battle-username1">Player 1</div>
+            </div>
+            <div class="player2">
+                <div id="battle-username1">Player 2</div>
+            </div>
+        </div>
+	</main>
+</Layout>
+
+<style>
+	:root {
+		--boradBox-color: #fff;
+		--boradBox-border: #dcdcdc;
+        --gameHeader-color: #1a1a1a;
+        --userBox-color: #4d4d4d;
+        --player1-1: #d4133c;
+        --player1-2: #EE5F7D;
+        --player2-1: #33adbc;
+        --player2-2: #65d4e3;
+	}
+	main {
+        width: 100%;
+		position: relative;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+	}
+    
+    /* Menu */
+    .menu {
+        position: relative;
+    }
+    .menu header {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        width: 100%;
+        height: 5rem;
+        background: var(--gameHeader-color);
+    }
+    .menu header .header-box {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1920px;
+		max-width: calc(100%);
+        height: 100%;
+    }
+    .menu header .header-box .user-box {
+        background: var(--userBox-color);
+        position: relative;
+        overflow: hidden;
+        width: 320px;
+        height: 100%;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .menu header .header-box .user-box img{
+        height: 70%;
+        -webkit-user-drag: none;
+    }
+    .menu header .header-box .user-box .user-name {
+        line-height: 1;
+        transform: translate(0,-2px);
+        padding: 10px;
+        color: #fff;
+        transition: all 0.3s;
+        z-index: 3;
+    }
+    .menu header .header-box .user-box .user-name .number {
+        font-size: 12px;
+        transform: translate(1px,0);
+        color: var(--player1-1);
+        font-family: "Bender";
+        transition: all 0.3s;
+    }
+    #menu-player2 .user-name .number {
+        color: var(--player2-1);
+    }
+    .menu header .header-box .user-box .user-name .name {
+        font-size: 22px;
+    }
+    .menu header .header-box .user-box:hover {
+        background: linear-gradient(90deg,var(--player1-1) 37.98%,var(--player1-2) 100%); 
+        box-shadow: 0 0 .75rem var(--player1-1);
+        transition: all 0.3s;
+    }
+    #menu-player2:hover {
+        background: linear-gradient(90deg,var(--player2-1) 37.98%,var(--player2-2) 100%); 
+        box-shadow: 0 0 .75rem var(--player2-1);
+    }
+    .menu header .header-box .user-box:hover .user-name .number {
+        color: #fff!important;
+        transition: all 0.3s;
+    }
+    .menu header .header-box .user-box .number-icon {
+        position: absolute;
+        right: 10px;
+        width: auto;
+    }
+    .menu header .header-box .user-box .number-icon img {
+        width: 90px;
+        transform: rotate(120deg);
+        transition: all 0.3s;
+    }
+    .menu header .header-box .user-box:hover .number-icon img {
+        filter: grayscale(100%);
+        transition: all 0.3s;
+    }
+    .menu header .header-box .title-box, .menu header .header-box .title-box img {
+        height: 100%;
+    }
+    @media only screen and (max-height: 400px) {
+        .menu header {
+            height: 3.6rem;
+        }
+        .menu header .header-box .user-box {
+            width: 220px;
+        }
+        .menu header .header-box .user-box .user-name {
+            transform: translate(0,0);
+        }
+        .menu header .header-box .user-box .user-name .number {
+            font-size: 10px;
+        }
+        .menu header .header-box .user-box .user-name .name {
+            font-size: 16px;
+        }
+        .menu header .header-box .user-box .number-icon img {
+            width: 50px;
+        }
+	}
+
+    /* Account Setting */
+    .account-setting {
+		position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+    }
+    .account-setting .account-background {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(255,255,255,0.5);
+    }
+    .account-setting .windows {
+        position: relative;
+        width: 50%;
+        height: 50%;
+        min-width: 500px;
+        min-height: 300px;
+        background: var(--gameHeader-color);
+    }
+    .account-setting .windows header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+        background: var(--userBox-color);
+    }
+    .account-setting .windows header .player-list {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        position: relative;
+        height: 100%;
+    }
+    .account-setting .windows header .player-list .player  {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        width: 200px;
+        height: 100%;
+        font-size: 20px;
+        color: #fff;
+        font-family: "Bender";
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .account-setting .windows header .player-list .player:hover  {
+        background: var(--webBackground-2);
+        box-shadow: 0 0 .75rem #fff;
+        transition: all 0.3s;
+    }
+    .account-setting .windows header .player-list .player-1  {
+        background: linear-gradient(90deg,var(--player1-1) 37.98%,var(--player1-2) 100%)!important; 
+        box-shadow: 0 0 .75rem var(--player1-1)!important;
+        transition: all 0.3s;
+    }
+    .account-setting .windows header .player-list .player-2  {
+        background: linear-gradient(90deg,var(--player2-1) 37.98%,var(--player2-2) 100%)!important; 
+        box-shadow: 0 0 .75rem var(--player2-1)!important;
+        transition: all 0.3s;
+    }
+
+    .account-setting .windows .detail {
+        padding: 15px;
+        color: #fff;
+    }
+
+    .account-setting .windows .close {
+        position: absolute;
+        top: 0;
+        right: -40px;
+        width: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .account-setting .windows .close:hover {
+        transform: rotate(90deg);
+        transition: all 0.3s;
+    }
+    @media only screen and (max-height: 400px) {
+        .account-setting .windows header {
+            height: 30px;
+        }
+        .account-setting .windows header .player-list .player  {
+            width: 100px;
+            font-size: 12px;
+        }
+	}
+    
+    
+
+    
+	
+    /* Battle Zone */
+    .player1 , .player2 {
+        background-color: black;
+    }
+    .player1 {
+		left: 0;
+		bottom: 0;
+		max-width: 200px;
+	}
+	.player2 {
+		right: 0;
+		bottom: 0;
+		max-width: 200px;
+	}
+    .battlezone {
+		position: relative;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		margin: auto;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		width: 1200px;
+		height: 100vh;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+    }
+    .borad {
+        display: grid;
+        grid-template-columns: repeat(3, 5rem);
+        grid-template-rows: repeat(3, 5rem);
+		grid-row-gap: 8px;
+		grid-column-gap: 8px;
+    }
+	.cell {
+		width: 100%;
+		height: 100%;
+		border: 2px solid var(--boradBox-border);
+		border-radius: 10px;
+		background: var(--boradBox-color);
+	}
+</style>
+
+<!-- 修改名称 -->
+<script>
+    // 玩家1名称
+    const changeNameButton1 = document.getElementById('changename1');
+    changeNameButton1.addEventListener('click', () => {
+        changeUsername1();
+    });
+
+    function changeUsername1() {
+        const userInput = (document.getElementById('typename1') as HTMLInputElement).value;
+        if (userInput == null || userInput == "") {
+            alert("Username can not be empty!");
+        }
+        else {
+            setNewName1(userInput);
+            alert("Success!");
+        }
+    }
+
+    function setNewName1(name) {
+        (document.getElementById("username1") as HTMLInputElement).innerHTML = "Dr. " + name;
+        (document.getElementById("accountUsername1") as HTMLInputElement).innerHTML = "Dr. " + name;
+    }
+
+    // 玩家2名称
+    const changeNameButton2 = document.getElementById('changename2');
+    changeNameButton2.addEventListener('click', () => {
+        changeUsername2();
+    });
+
+    function changeUsername2() {
+        const userInput = (document.getElementById('typename2') as HTMLInputElement).value;
+        if (userInput == null || userInput == "") {
+            alert("Username can not be empty!");
+        }
+        else {
+            setNewName2(userInput);
+            alert("Success!");
+        }
+    }
+
+    function setNewName2(name) {
+        (document.getElementById("username2") as HTMLInputElement).innerHTML = "Dr. " + name;
+        (document.getElementById("accountUsername2") as HTMLInputElement).innerHTML = "Dr. " + name;
+    }
+</script>
+
+
+<!-- 玩家设置 -->
+<script>
+    const menuPlayer1 = document.getElementById('menu-player1');
+    const menuPlayer2 = document.getElementById('menu-player2');
+    const ply1Detail = document.getElementById('ply1detail');
+    const ply2Detail = document.getElementById('ply2detail');
+    const accountBackground = document.getElementById('accountBackground');
+    const closeAccountWindows = document.getElementById('closeAccountWindows');
+
+    menuPlayer1.addEventListener('click', () => {
+        openAcc();
+    });
+    menuPlayer2.addEventListener('click', () => {
+        openAcc();
+    });
+    accountBackground.addEventListener('click', () => {
+        closeAcc();
+    });
+    closeAccountWindows.addEventListener('click', () => {
+        closeAcc();
+    });
+    ply1Detail.addEventListener('click', () => {
+        showPlayer1Detail();
+    });
+    ply2Detail.addEventListener('click', () => {
+        showPlayer2Detail();
+    });
+
+    
+    function openAcc() {
+        (document.getElementById("accountWindows") as HTMLInputElement).style.display = "";
+    }
+    function closeAcc() {
+        (document.getElementById("accountWindows") as HTMLInputElement).style.display = "none";
+    }
+
+    function showPlayer1Detail() {
+        // setting header
+        (document.getElementById("ply1detail") as HTMLInputElement).className = "player player-1";
+        (document.getElementById("ply2detail") as HTMLInputElement).className = "player";
+
+        // menu header
+        (document.getElementById("menu-player1") as HTMLInputElement).style.display = "";
+        (document.getElementById("menu-player2") as HTMLInputElement).style.display = "none";
+
+        // detail page
+        (document.getElementById("player1-detail") as HTMLInputElement).style.display = "";
+        (document.getElementById("player2-detail") as HTMLInputElement).style.display = "none";
+    }
+    function showPlayer2Detail() {
+        // setting header
+        (document.getElementById("ply2detail") as HTMLInputElement).className = "player player-2";
+        (document.getElementById("ply1detail") as HTMLInputElement).className = "player";
+        
+        // menu header
+        (document.getElementById("menu-player1") as HTMLInputElement).style.display = "none";
+        (document.getElementById("menu-player2") as HTMLInputElement).style.display = "";
+
+        // detail page
+        (document.getElementById("player1-detail") as HTMLInputElement).style.display = "none";
+        (document.getElementById("player2-detail") as HTMLInputElement).style.display = "";
+    }
+
+</script>
+
+<script>
+    window.addEventListener('beforeunload', function (event) {
+        // 自定义提示信息（部分浏览器不支持）
+        var confirmationMessage = '确定要刷新页面吗？所有未保存的数据将会丢失。';
+        event.returnValue = confirmationMessage; // 标准规范
+        return confirmationMessage; // 某些浏览器可能需要这一行
+    });
+</script>

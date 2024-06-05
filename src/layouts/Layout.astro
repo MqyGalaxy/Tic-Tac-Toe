@@ -1,0 +1,78 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--webBackground-0: #fff;
+		--webBackground-1: #dcdcdc;
+		--webBackground-2: #B9B9B9;
+		--text-color: #333;
+	}
+	html {
+		overflow: hidden;
+		font-family: system-ui, sans-serif;
+		background-size: 224px;
+	}
+	html body {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		position: relative;
+		background: linear-gradient(180deg,var(--webBackground-0) 20%,var(--webBackground-1) 80%, var(--webBackground-2) 100%);
+		color: var(--text-color);
+		font-family: "Source Han Sans CN Normal",-apple-system, "PingFang SC","Microsoft YaHei",sans-serif;
+		font-size: 1em;
+		line-height: 2;
+		-webkit-font-smoothing: antialiased;
+	}
+	@font-face {
+		font-family: 'Source Han Sans CN Heavy';
+		src: url('/fonts/Source Han Sans CN Heavy.otf');
+		font-weight: bold;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Source Han Sans CN Medium';
+		src: url('/fonts/Source Han Sans CN Medium.otf');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Source Han Sans CN Normal';
+		src: url('/fonts/SourceHanSansSC-Normal.otf');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Source Han Sans CN Light';
+		src: url('/fonts/SourceHanSansSC-Light.otf');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Bender';
+		src: url('/fonts/Bender.otf');
+		font-weight: normal;
+		font-style: normal;
+	}
+</style>
