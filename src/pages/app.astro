@@ -361,7 +361,7 @@ import Layout from '../layouts/Layout.astro';
 <!-- 修改名称 -->
 <script>
     // 玩家1名称
-    const changeNameButton1 = document.getElementById('changename1');
+    const changeNameButton1 = document.getElementById('changename1')!;
     changeNameButton1.addEventListener('click', () => {
         changeUsername1();
     });
@@ -383,7 +383,7 @@ import Layout from '../layouts/Layout.astro';
     }
 
     // 玩家2名称
-    const changeNameButton2 = document.getElementById('changename2');
+    const changeNameButton2 = document.getElementById('changename2')!;
     changeNameButton2.addEventListener('click', () => {
         changeUsername2();
     });
@@ -408,12 +408,12 @@ import Layout from '../layouts/Layout.astro';
 
 <!-- 玩家设置 -->
 <script>
-    const menuPlayer1 = document.getElementById('menu-player1');
-    const menuPlayer2 = document.getElementById('menu-player2');
-    const ply1Detail = document.getElementById('ply1detail');
-    const ply2Detail = document.getElementById('ply2detail');
-    const accountBackground = document.getElementById('accountBackground');
-    const closeAccountWindows = document.getElementById('closeAccountWindows');
+    const menuPlayer1 = document.getElementById('menu-player1')!;
+    const menuPlayer2 = document.getElementById('menu-player2')!;
+    const ply1Detail = document.getElementById('ply1detail')!;
+    const ply2Detail = document.getElementById('ply2detail')!;
+    const accountBackground = document.getElementById('accountBackground')!;
+    const closeAccountWindows = document.getElementById('closeAccountWindows')!;
 
     menuPlayer1.addEventListener('click', () => {
         openAcc();
