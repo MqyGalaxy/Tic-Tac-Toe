@@ -377,7 +377,7 @@ import Layout from '../layouts/Layout.astro';
         }
     }
 
-    function setNewName1(name) {
+    function setNewName1(name: String) {
         (document.getElementById("username1") as HTMLInputElement).innerHTML = "Dr. " + name;
         (document.getElementById("accountUsername1") as HTMLInputElement).innerHTML = "Dr. " + name;
     }
@@ -399,7 +399,7 @@ import Layout from '../layouts/Layout.astro';
         }
     }
 
-    function setNewName2(name) {
+    function setNewName2(name: String) {
         (document.getElementById("username2") as HTMLInputElement).innerHTML = "Dr. " + name;
         (document.getElementById("accountUsername2") as HTMLInputElement).innerHTML = "Dr. " + name;
     }
