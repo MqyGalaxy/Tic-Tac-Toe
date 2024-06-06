@@ -4,6 +4,10 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Tic-Tac-Toe - PRTS System running">
 	<main>
+        <div class="warning">
+            <img src="/imgs/warning.png" style="width: 50px;">
+            <p style="width: 100%; text-align: center;">Please play the game in landscape mode.</p>
+        </div>
         <div class="menu">
             <div class="game-menu">
                 <header>
@@ -34,6 +38,25 @@ import Layout from '../layouts/Layout.astro';
                         </div>
                     </div>
                 </header>
+                <div class="gamemode">
+                    <div class="gamemode-box">
+                        <div class="ai-mode">
+                            <div class="play-with" id="play-with-ai">
+                                <img src="/imgs/ai-mode.png">
+                            </div>
+                            <div class="button cc"></div>
+                        </div>
+                        <div class="player-mode">
+                            <div class="play-with" id="play-with-player">
+                                <img src="/imgs/player-mode.png">
+                            </div>
+                            <div class="button game-setting"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="background">
+                    <img src="/imgs/background.png">
+                </div>
             </div>
         </div>
 
@@ -106,17 +129,66 @@ import Layout from '../layouts/Layout.astro';
         margin: 0;
         padding: 0;
 	}
-    
+
+    .warning {
+        position: fixed;
+        z-index: 997;
+        width: 100%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background: var(--gameHeader-color);
+        color: #fff;
+    }
+    .warning p {
+        font-size: 16px;
+    }
+    @media only screen and (max-width: 500px) {
+        .warning {
+            display: flex;
+        }
+    }
+
     /* Menu */
     .menu {
         position: relative;
+    }
+    .menu .background {
+        position: fixed;
+        z-index: 1;
+        width: auto;
+        height: 80%;
+        left: 5%;
+        bottom: 15px; 
+    }
+    @media only screen and (max-height: 500px) {
+        .menu .background {
+            height: 80%;
+            left: 10px;
+            bottom: 15px; 
+        }
+    }
+    @media only screen and (max-height: 1024px) {
+        .menu .background {
+            height: 70%;
+            left: 10px;
+            bottom: 15px; 
+        }
+    }
+    .menu .background img {
+        width: 100%;
+        height: 100%;
+        opacity: .5;
+        filter: saturate(150%);
     }
     .menu header {
         position: fixed;
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 2;
+        z-index: 3;
         width: 100%;
         height: 5rem;
         background: var(--gameHeader-color);
@@ -154,7 +226,7 @@ import Layout from '../layouts/Layout.astro';
         padding: 10px;
         color: #fff;
         transition: all 0.3s;
-        z-index: 3;
+        z-index: 4;
     }
     .menu header .header-box .user-box .user-name .number {
         font-size: 12px;
@@ -199,7 +271,49 @@ import Layout from '../layouts/Layout.astro';
     .menu header .header-box .title-box, .menu header .header-box .title-box img {
         height: 100%;
     }
-    @media only screen and (max-height: 400px) {
+    .menu .game-menu .gamemode {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+    }
+    .menu .game-menu .gamemode .gamemode-box {
+        position: fixed;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        z-index: 2;
+        width: 1920px;
+        max-width: calc(100%);
+        height: 100%;
+    }
+    .menu .game-menu .gamemode .ai-mode, .menu .game-menu .gamemode .player-mode {
+        margin-top: 0;
+        margin-right: 10vh;
+    }
+    .menu .game-menu .gamemode .play-with {
+        width: 40vh;
+    }
+    .menu .game-menu .gamemode .play-with img {
+        width: 40vh;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .menu .game-menu .gamemode .play-with img:hover {
+        filter: brightness(0.9);
+        transition: all 0.3s;
+    }
+    .menu .game-menu .gamemode .button {
+        margin-top: 2vh;
+        width: 100%;
+        border-radius: 1vh;
+        height: 5vh;
+        background-color: #d4133c;
+    }
+    @media only screen and (max-height: 500px) {
         .menu header {
             height: 3.6rem;
         }
@@ -218,6 +332,19 @@ import Layout from '../layouts/Layout.astro';
         .menu header .header-box .user-box .number-icon img {
             width: 50px;
         }
+        .menu .game-menu .gamemode .ai-mode, .menu .game-menu .gamemode .player-mode {
+            margin-top: 8vh;
+            margin-right: 8vh;
+        }
+        .menu .game-menu .gamemode .play-with {
+            width: 38vh;
+        }
+        .menu .game-menu .gamemode .play-with img {
+            width: 38vh;
+        }
+        .menu .game-menu .gamemode .button {
+            margin-top: 1vh;
+        }
 	}
 
     /* Account Setting */
@@ -228,7 +355,7 @@ import Layout from '../layouts/Layout.astro';
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 3;
+        z-index: 5;
     }
     .account-setting .account-background {
         position: fixed;
