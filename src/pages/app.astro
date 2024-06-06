@@ -38,7 +38,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
 
-        <div class="account-setting" id="accountWindows">
+        <div class="account-setting" id="accountWindows"style="display: none">
             <div class="account-background" id="accountBackground"></div>
             <div class="windows">
                 <header>
@@ -50,13 +50,17 @@ import Layout from '../layouts/Layout.astro';
                 <div class="detail">
                     <div class="player1-detail" id="player1-detail">
                         <h1 id="accountUsername1">Dr. Player 1</h1>
-                        <input type="text" id="typename1" name="" required minlength="1" maxlength="9" size="12" />
-                        <button type="button" id="changename1">Change</button>
+                        <div class="typename">
+                            <input type="text" id="typename1" name="" required minlength="1" maxlength="9" size="12" placeholder="Username" />
+                            <button type="button" id="changename1">Change</button>
+                         </div>
                     </div>
                     <div class="player2-detail" id="player2-detail" style="display: none;">
                         <h1 id="accountUsername2">Dr. Player 2</h1>
-                        <input type="text" id="typename2" name="" required minlength="1" maxlength="9" size="12" />
-                        <button type="button" id="changename2">Change</button>
+                        <div class="typename">
+                            <input type="text" id="typename2" name="" required minlength="1" maxlength="9" size="12"placeholder="Username" />
+                            <button type="button" id="changename2">Change</button>
+                        </div>
                     </div>
                 </div>
                 <img class="close" id="closeAccountWindows" src="/imgs/close-000.png" />
@@ -283,15 +287,66 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .account-setting .windows .detail {
-        padding: 15px;
+        padding: 20px;
         color: #fff;
+    }
+    #accountUsername1, #accountUsername2 {
+        font-size: 50px;
+        font-family: "Source Han Sans CN Medium";
+        margin: 0;
+    }
+
+    .account-setting .windows .detail .typename {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+    #typename1, #typename2 {
+        outline-style: none;
+        width: 200px;
+        height: 20px;
+        font-size: 16px;
+        border: 0;
+        border-radius: 40px 0 0 40px;
+        padding: 10px;
+        background: var(--webBackground-1);
+        margin-right: 0;
+    }
+    #changename1, #changename2 {
+        outline-style: none;
+        cursor: pointer;
+        color: #fff;
+        width: 100px;
+        height: 40px;
+        font-size: 16px;
+        border: 0;
+        border-radius: 0 40px 40px 0;
+        padding: 10px;
+        margin: 0;
+        margin-right: 0;
+    }
+    #changename1 {
+        background: linear-gradient(90deg,var(--player1-1) 37.98%,var(--player1-2) 100%)!important; 
+        transition: all 0.3s;
+    }
+    #changename1:hover {
+        box-shadow: 0 0 .75rem var(--player1-1)!important;
+        transition: all 0.3s;
+    }
+    #changename2 {
+        background: linear-gradient(90deg,var(--player2-1) 37.98%,var(--player2-2) 100%)!important; 
+        transition: all 0.3s;
+    }
+    #changename2:hover {
+        box-shadow: 0 0 .75rem var(--player2-1)!important;
+        transition: all 0.3s;
     }
 
     .account-setting .windows .close {
         position: absolute;
         top: 0;
-        right: -40px;
-        width: 30px;
+        right: -60px;
+        width: 50px;
         cursor: pointer;
         transition: all 0.3s;
     }
@@ -306,6 +361,16 @@ import Layout from '../layouts/Layout.astro';
         .account-setting .windows header .player-list .player  {
             width: 100px;
             font-size: 12px;
+        }
+        #accountUsername1, #accountUsername2 {
+            font-size: 30px;
+        }
+        .typename {
+            transform: scale(0.7) translateX(-100px);
+        }
+        .account-setting .windows .close {
+            right: -40px;
+            width: 30px;
         }
 	}
     
