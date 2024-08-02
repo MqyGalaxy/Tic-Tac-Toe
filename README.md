@@ -24,5 +24,5 @@ A Tic-Tac-Toe game in the art style of Arknights RHODES ISLAND ICEBREAKER GAMES 
    - “干员一览.” PRTS, 9 August 2023, https://prts.wiki/w/%E5%B9%B2%E5%91%98%E4%B8%80%E8%A7%88. Accessed 24 May 2024.
 
 # Produced by
- - [MOEQY](https://www.moeqy.com/)
+ - [MOEQY](https://www.moeqy.com/en/)
  - [CONCEPTS GAME](https://www.moeqy.com/conceptsgame/)
