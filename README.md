@@ -1,54 +1,26 @@
-# Astro Starter Kit: Basics
+# Tic-Tac-Toe
 
-```sh
-npm create astro@latest -- --template basics
-```
+A Tic-Tac-Toe game in the art style of Arknights RHODES ISLAND ICEBREAKER GAMES made with Astro and JavaScript.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+**Concept design artwork:**
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![Concept design artwork](/imgs/Start_Menu.png)
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Development Plan
 
-## 🚀 Project Structure
+ - [ ] Complete the gameplay system.
+   - [x] Complete basic Tic-Tac-Toe gameplay.
+   - [ ] Innovative gameplay.
+   - [ ] Complete Arknights character system.
+   - [ ] Complete Challenge System (BATTLEPLAN Contingency Contract).
 
-Inside of your Astro project, you'll see the following folders and files:
+# Thanks
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+ - **Astro web framework documentation:** Use web framework to better plan and optimize the web front-end.
+   - “Project Structure | Docs.” Astro Docs, https://docs.astro.build/en/basics/project-structure/. Accessed 24 May 2024.
+ - **Art resources(Non-commercial):** Enrich game pages and gameplay.
+   - “干员一览.” PRTS, 9 August 2023, https://prts.wiki/w/%E5%B9%B2%E5%91%98%E4%B8%80%E8%A7%88. Accessed 24 May 2024.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+# Produced by
+ - [MOEQY](https://www.moeqy.com/)
+ - [CONCEPTS GAME](https://www.moeqy.com/conceptsgame/)
