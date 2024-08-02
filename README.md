@@ -4,7 +4,7 @@ A Tic-Tac-Toe game in the art style of Arknights RHODES ISLAND ICEBREAKER GAMES 
 
 **Concept design artwork:**
 
-![Concept design artwork](/imgs/Start_Menu.png)
+![Concept design artwork](public/imgs/Start_Menu.png)
 
 ## Development Plan
 
