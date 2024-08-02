@@ -2,6 +2,8 @@
 
 A Tic-Tac-Toe game in the art style of Arknights RHODES ISLAND ICEBREAKER GAMES made with Astro and JavaScript.
 
+[Start Game](https://ttt.moeqy.com/app)
+
 **Concept design artwork:**
 
 ![Concept design artwork](public/imgs/Start_Menu.png)
