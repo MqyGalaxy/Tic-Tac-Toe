@@ -18,6 +18,7 @@ A Tic-Tac-Toe game in the art style of Arknights RHODES ISLAND ICEBREAKER GAMES 
 
 # Thanks
 
+ - **Arknights** by HYPERGRYPH (GRYPHLINE)
  - **Astro web framework documentation:** Use web framework to better plan and optimize the web front-end.
    - “Project Structure | Docs.” Astro Docs, https://docs.astro.build/en/basics/project-structure/. Accessed 24 May 2024.
  - **Art resources(Non-commercial):** Enrich game pages and gameplay.
